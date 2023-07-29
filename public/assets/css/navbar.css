@@ -1,0 +1,20 @@
+.nav {
+    background-color: #333;
+    padding: 10px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.nav-item a {
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 10px;
+}
+
+.nav-item a:hover {
+    text-decoration: underline;
+}
+
+.sidebar a.active {
+    background-color: #f00;
+}
