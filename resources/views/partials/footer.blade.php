@@ -56,7 +56,7 @@
 </script>
 <script>
     $(document).ready(function() {
-        $('#example').DataTable();
+        $('#tabeldashboard').DataTable();
     });
 
     // Ambil Kode Barang

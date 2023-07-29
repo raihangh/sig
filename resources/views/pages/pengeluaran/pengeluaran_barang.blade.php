@@ -88,7 +88,7 @@
           </div>
           <div class="col-lg-7 table-barang">
             <h4>Daftar Pengeluaran Barang</h4>
-            <table id="example" class="table table-striped table-bordered " style="width:100%">
+            <table id="tabeldashboard" class="table table-striped table-bordered " style="width:100%">
               <thead>
                 <tr>
                   <th>No</th>

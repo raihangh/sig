@@ -67,7 +67,7 @@
                 </div>
                 <div class="row" style="margin-top: 20px;">
                     <div class="col-lg-12 table-barang">
-                        <table id="example" class="table table-striped table-bordered " style="width:100%">
+                        <table id="tabeldashboard" class="table table-striped table-bordered " style="width:100%">
                             <thead>
                                 <tr>
                                     <th>No</th>

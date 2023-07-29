@@ -17,7 +17,7 @@
         <div class="row" style="margin-top: 20px;">
           <div class="col-lg-12 table-barang" >
             <a href="/dashboard-input-barang" class="btn btn-primary" style="margin-bottom: 20px;">Tambah Barang</a>
-            <table id="example" class="table table-striped table-bordered " style="width:100%">
+            <table id="tabeldashboard" class="table table-striped table-bordered " style="width:100%">
               <thead>
                 <tr>
                   <th>No</th>
