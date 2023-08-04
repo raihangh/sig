@@ -32,8 +32,6 @@ Route::middleware('auth')->group(function () {
         Route::get('/dashboard-input-barang', 'pageInputBarang');
         Route::get('/dashboard-laporan', 'pageLaporan');
         Route::get('/dashboard-cetak-pdf','cetaktotalPDF');
-        // Route::post('/dashboard-laporan-penerimaan', 'exportPDFpenerimaan');
-        // Route::post('/dashboard-laporan-pengeluaran', 'exportPDFpengeluaran');
         Route::post('/dashboard-laporan-penerimaan-search', 'penerimaanSearch');
         Route::get('/dashboard-cetak-pdf-laporan-penerimaan/{startDate}/{endDate}', 'cetakPDFpenerimaan');
         Route::post('/dashboard-laporan-pengeluaran-search', 'pengeluaranSearch');
@@ -50,9 +48,8 @@ Route::middleware('auth')->group(function () {
         Route::delete("/dashboard-barang-delete/{id}", 'deleteBarang');
         Route::put("/dashboard-barang-edit/{id}", 'aksiEditBarang');
     });
-
-
 });
+
 
 Route::middleware('guest')->group(function () {
     Route::controller(AuthController::class)->group(function () {

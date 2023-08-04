@@ -11,7 +11,6 @@ use App\Models\PengeluaranBarang;
 class BarangController extends Controller
 {
     private $barang;
-
     public function __construct()
     {
         $this->barang = new Barangs();
@@ -25,7 +24,7 @@ class BarangController extends Controller
 
     public function postBarang(Request $request)
     {
-        // Validate data
+
         $validatedData = $request->validate([
             'nama_barang' => 'required',
             'kode_barang' => 'required',
@@ -37,9 +36,9 @@ class BarangController extends Controller
         ]);
 
         try {
-            // Membuat instance model
+
             $model = new Barangs();
-            // Tetapkan nilai dari data permintaan yang divalidasi ke properti model
+
             $model->nama_barang = $validatedData['nama_barang'];
             $model->kode_barang = $validatedData['kode_barang'];
             $model->deskripsi = $validatedData['deskripsi'];
@@ -48,13 +47,13 @@ class BarangController extends Controller
             $model->satuan = $validatedData['satuan'];
             $model->stock = $validatedData['stock'];
             $model->save();
-            //success message
+
             $message = 'Product code inserted successfully';
         } catch (\Exception $e) {
-            //error message
+
             $message = 'Error inserting product code: ' . $e->getMessage();
         }
-        // Save the model to insert the data
+
         return back()->with('pesanBarang', $message);
     }
 
@@ -131,7 +130,7 @@ class BarangController extends Controller
             $model->jumlah = $validatedData['jumlah'];
             $model->satuan = $validatedData['satuan'];
 
-            
+             
             $barang = Barangs::where([
                 ['id', $validatedData['barang_id']],
                 ['kode_barang', $validatedData['kode_barang']]

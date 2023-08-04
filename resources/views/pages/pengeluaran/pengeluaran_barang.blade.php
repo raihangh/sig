@@ -22,7 +22,7 @@
               @csrf
               <div class="form-group">
                 <label for="barang-name">Nama Barang:</label>
-                <select class="form-control" name="barang_id" id="id_barang" onchange="changeValue()">
+                <select class="form-control" name="barang_id" id="id_barang" onchange="changeValue()" required>
                   <option value="">Pilih Barang</option>
                   @foreach($barang as $b)
                   <option value="{{ $b->id}}">{{ $b->nama_barang}}</option>
@@ -46,7 +46,7 @@
               <div class="form-group">
                 <label for="category">No Pengeluaran:</label>
                 <input type="text" class="form-control" id="barang-name" name="no_pengeluaran"
-                  value="{{ old('no_pengeluaran') }}" placeholder="Enter the name of the item">
+                  value="{{ old('no_pengeluaran') }}" placeholder="Enter the name of the item" required>
                 @error('no_pengeluaran')
                  <small id="passwordHelp" class="text-danger">
                   {{ $message }}
@@ -55,7 +55,7 @@
               </div>
               <div class="form-group">
                 <label for="satuan">Satuan:</label>
-                <input type="text" value="" name="satuan" id="satuan_penerimaan" class="form-control" readonly="readonly">
+                <input type="text" value="" name="satuan" id="satuan_penerimaan" class="form-control" readonly="readonly" required>
                 @error('satuan')
                 <small id="" class="text-danger">
                   {{ $message }}
@@ -65,7 +65,7 @@
               <div class="form-group">
                 <label for="barang-deskripsi">Tanggal:</label>
                 <input type="date" class="form-control" name="tanggal_pengeluaran"
-                  value="{{ old('tanggal_pengeluaran') }}" placeholder="Enter the price of the item">
+                  value="{{ old('tanggal_pengeluaran') }}" placeholder="Enter the price of the item" required>
                 @error('tanggal_pengeluaran')
                  <small id="passwordHelp" class="text-danger">
                   {{ $message }}
@@ -75,14 +75,14 @@
               <div class="form-group">
                 <label for="" >JUMLAH / <span id="packorecer"></span></label>
                 <input type="number" class="form-control" name="jumlah" value="{{ old('jumlah') }}"
-                  placeholder="Enter the price of the item" min="0" id="jumlah">
+                  placeholder="Enter the price of the item" min="0" id="jumlah" required>
                 @error('jumlah')
                  <small id="passwordHelp" class="text-danger">
                   {{ $message }}
                 </small>
                 @enderror
               </div>
-              <button class="btn btn-warning">Tambah Pengeluaran</button>
+              <button class="btn btn-primary">Tambah Pengeluaran</button>
             </form>
 
           </div>

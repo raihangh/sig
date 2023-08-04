@@ -15,11 +15,9 @@ class PengeluaranBarang extends Model
     {
         $results = DB::table('barangs')
         ->join('pengeluaran_barang', 'barangs.id', '=', 'pengeluaran_barang.barang_id')
-        ->select('barangs.nama_barang', 'pengeluaran_barang.*')
+        ->select('barangs.nama_barang', 'pengeluaran_barang.*')->orderBy('tanggal_pengeluaran', 'DESC')
         ->get();
-        return $results;
-
-        
+        return $results;        
     }
 
     public static function getPengeluaranPDF($startDate,$endDate){  
@@ -33,7 +31,7 @@ class PengeluaranBarang extends Model
         $results = DB::table('barangs')
         ->join('pengeluaran_barang', 'barangs.id', '=', 'pengeluaran_barang.barang_id')
         ->whereBetween('pengeluaran_barang.tanggal_pengeluaran', [$startDate, $endDate])
-        ->select('barangs.nama_barang', 'pengeluaran_barang.*')
+        ->select('barangs.nama_barang', 'pengeluaran_barang.*')->orderBy('tanggal_pengeluaran', 'DESC')
         ->get();
         return $results;
     }

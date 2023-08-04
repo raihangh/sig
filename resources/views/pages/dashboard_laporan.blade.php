@@ -10,27 +10,35 @@
                         <ol class="breadcrumb">
                             <li><a href="#">Home</a></li>
                             <li><a href="#">Admin</a></li>
-                            <li>{{ $title }}</li>
+                            <li><a href="dashboard-laporan">{{ $title }}</a></li>
                         </ol>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-6 " style="padding:20px;">
                         <h4>Table Penerimaan Barang</h4>
-                        <form id="dateRangeFormPenerimaan" action="/dashboard-laporan-penerimaan-search"
-                            style="margin-top:20px;" method="POST">
-                            @csrf
-                            <label for="">Mulai dari</label>
-                            <input type="date" name="tanggal_penerimaan">
-                            <label for="">Sampai: </label>
-                            <input type="date" name="tanggal_penerimaan_end">
-                            <button class="btn btn-primary">Cari</button>
-                          </form>
-                          @if(count($penerimaan) !== 0)
-                          <form action="/dashboard-cetak-pdf-laporan-penerimaan/{{ $penerimaan[count($penerimaan) - 1]->tanggal_penerimaan }}/{{ $penerimaan[0]->tanggal_penerimaan }}" method="GET">
-                            <button class="btn btn-primary">Cetak</button>
-                          </form>                        
-                          @endif
+                        <div style="display: flex; margin-top: 20px;">
+                            <form id="dateRangeFormPenerimaan" action="/dashboard-laporan-penerimaan-search" method="POST">
+                                @csrf
+                                <label for="">Mulai dari</label>
+                                <input type="date" name="tanggal_penerimaan" required>
+                                <label for="">Sampai: </label>
+                                <input type="date" name="tanggal_penerimaan_end" required>
+                                <button class="btn btn-primary" style="margin-left: 10px;">Cari</button>
+                            </form>
+                        
+                            @if($startDatePenerimaan && $endDatePenerimaan)
+                                <form action="/dashboard-cetak-pdf-laporan-penerimaan/{{ $startDatePenerimaan }}/{{ $endDatePenerimaan }}" method="GET">
+                                    <button class="btn btn-primary" style="margin-left: 10px;">Cetak</button>
+                                </form>
+                            @else
+                                <form action="/dashboard-cetak-pdf-laporan-penerimaan/{{ $penerimaan[count($penerimaan) - 1]->tanggal_penerimaan }}/{{ $penerimaan[0]->tanggal_penerimaan }}" method="GET">
+                                    <button class="btn btn-primary" style="margin-left: 10px;">Cetak</button>
+                                </form>
+                            @endif
+                        </div>
+                        
+                        
                         <div class="table-responsive table-full-width" style="margin-top:20px;">
                             <table class="table table-hover table-striped">
                                 <thead>
@@ -64,21 +72,26 @@
                     </div>
                     <div class="col-md-6" style="padding:20px;">
                         <h4>Table Pengeluaran Barang</h4>
-                        <form id="dateRangeFormPengeluaran" action="/dashboard-laporan-pengeluaran-search"
-                            style="margin-top:20px;" method="POST">
-                            @csrf
-                            <label for="">Mulai dari</label>
-                            <input type="date" name="tanggal_pengeluaran">
-                            <label for="">Sampai: </label>
-                            <input type="date" name="tanggal_pengeluaran_end">
-                            <button class="btn btn-primary">Cari</button>
-                          </form>
-                          @if(count($pengeluaran) !== 0)
-                          <form action="/dashboard-cetak-pdf-laporan-pengeluaran/{{ $pengeluaran[count($pengeluaran) - 1]->tanggal_pengeluaran }}/{{ $pengeluaran[0]->tanggal_pengeluaran }}" method="GET">
-                            <button class="btn btn-primary">Cetak</button>
-                          </form>                        
-                          @endif
-
+                        <div style="display: flex; margin-top: 20px;">
+                            <form id="dateRangeFormPengeluaran" action="/dashboard-laporan-pengeluaran-search" method="POST">
+                                @csrf
+                                <label for="">Mulai dari</label>
+                                <input type="date" name="tanggal_pengeluaran" required>
+                                <label for="">Sampai: </label>
+                                <input type="date" name="tanggal_pengeluaran_end" required>
+                                <button class="btn btn-primary" style="margin-left: 10px;">Cari</button>
+                            </form>
+                        
+                            @if($startDatePengeluaran && $endDatePengeluaran)
+                                <form action="/dashboard-cetak-pdf-laporan-penerimaan/{{ $startDatePengeluaran }}/{{ $endDatePengeluaran }}" method="GET">
+                                    <button class="btn btn-primary" style="margin-left: 10px;">Cetak</button>
+                                </form>
+                            @else
+                                <form action="/dashboard-cetak-pdf-laporan-pengeluaran/{{ $pengeluaran[count($pengeluaran) - 1]->tanggal_pengeluaran }}/{{ $pengeluaran[0]->tanggal_pengeluaran }}" method="GET">
+                                    <button class="btn btn-primary" style="margin-left: 10px;">Cetak</button>
+                                </form>
+                            @endif
+                        </div>                       
                         <div class="table-responsive table-full-width" style="margin-top:20px;">
                             <table class="table table-hover table-striped">
                                 <thead>
