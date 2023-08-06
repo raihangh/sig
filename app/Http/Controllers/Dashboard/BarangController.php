@@ -59,7 +59,7 @@ class BarangController extends Controller
 
     public function postPenerimaanBarang(Request $request)
     {
-        // Validate the request data
+
         $validatedData = $request->validate([
             'barang_id' => 'required',
             'no_penerimaan' => 'required',
