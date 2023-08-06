@@ -43,10 +43,10 @@ class AuthController extends Controller
         // Validate the form input
         $request->validate([
             'name' => 'required',
-            'email' => 'required|email|unique:users',
+            'email' => 'required', 'email', 'unique:users',
             'password' => 'required|min:4',
         ]);
-
+        // 'email' => ['required', 'email', 'unique:users', 'regex:/^[A-Za-z0-9._%+-]+@(gmail|yahoo)\.(com|co.id)$/i'],
         // Create a new user
         $user = new User();
         $user->name = $request->input('name');
