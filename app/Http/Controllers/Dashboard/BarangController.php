@@ -25,15 +25,23 @@ class BarangController extends Controller
     public function postBarang(Request $request)
     {
 
-        $validatedData = $request->validate([
-            'nama_barang' => 'required',
-            'kode_barang' => 'required',
-            'deskripsi' => 'required',
-            'harga' => 'required',
-            'kategori' => 'required',
-            'satuan' => 'required',
-            'stock' => 'required',
-        ]);
+        $validatedData = $request->validate(
+            [
+                'nama_barang' => 'required',
+                'kode_barang' => 'required',
+                'deskripsi' => 'required',
+                'harga' => 'required',
+                'kategori' => 'required',
+                'satuan' => 'required',
+                'stock' => 'required',
+            ],
+            // [
+            //     'nama_barang.required' => 'Barang Harus Diisi',
+            //     'kode_barang.required' => 'Kode Barang Harus Disisi'
+            // ]  
+        );
+
+        
 
         try {
 
@@ -70,9 +78,8 @@ class BarangController extends Controller
         ]);
 
         try {
-            // Create a new instance of the model
             $model = new PenerimaanBarang();
-            // Assign values from the validated request data to the model's properties
+
             $model->barang_id = $validatedData['barang_id'];
             $model->no_penerimaan = $validatedData['no_penerimaan'];
             $model->kode_barang = $validatedData['kode_barang'];
@@ -95,21 +102,17 @@ class BarangController extends Controller
             }
 
             $model->save();
-            // Set success message
             $message = 'Sukses input peneriman barang';
         } catch (\Exception $e) {
-            // Set error message
             $message = 'Error inserting product code: ' . $e->getMessage();
             echo $message;
         }
-        // Save the model to insert the data
         return back()->with('penerimaanBarang', $message);
     }
 
 
     public function postPengeluaranBarang(Request $request)
     {
-        // Validate the request data
         $validatedData = $request->validate([
             'barang_id' => 'required',
             'no_pengeluaran' => 'required',
@@ -120,9 +123,8 @@ class BarangController extends Controller
         ]);
 
         try {
-            // Create a new instance of the model
             $model = new PengeluaranBarang();
-            // Assign values from the validated request data to the model's properties
+
             $model->barang_id = $validatedData['barang_id'];
             $model->no_pengeluaran = $validatedData['no_pengeluaran'];
             $model->kode_barang = $validatedData['kode_barang'];
@@ -144,13 +146,10 @@ class BarangController extends Controller
             }
 
             $model->save();
-            // Set success message
             $message = 'Sukses input pengeluaran barang';
         } catch (\Exception $e) {
-            // Set error message
             $message = 'Error inserting product code: ' . $e->getMessage();
         }
-        // Save the model to insert the data
         return back()->with('pengeluaranBarang', $message);
     }
 
@@ -166,16 +165,12 @@ class BarangController extends Controller
 
     public function aksiEditBarang(Request $request, $id)
     {
-        // Retrieve the barang by its ID
         $barang = Barangs::find($id);
 
         if (!$barang) {
-            // Handle the case where the barang is not found
-            // You can return an error message or redirect as needed
             abort(404, 'Barang not found');
         }
 
-        // Validate the request data
         $validatedData = $request->validate([
             'nama_barang' => 'required',
             'kode_barang' => 'required',
@@ -187,27 +182,20 @@ class BarangController extends Controller
         ]);
 
         try {
-            // Update the barang data using the validated request data
             $barang->update($validatedData);
-            // Set success message
             $message = 'Barang Berhasil DiUpdate';
         } catch (\Exception $e) {
-            // Set error message
             $message = 'Barang gagal Diupdate: ' . $e->getMessage();
         }
 
-        // Redirect back with success message
         return redirect()->back()->with('infoEditBarang', $message);
     }
 
     public function deleteBarang($id)
     {
-        // Retrieve the barang by ID
         $barang = Barangs::find($id);
 
         if (!$barang) {
-            // Handle the case where the barang is not found
-            // You can return an error message or redirect as needed
             abort(404, 'Barang not found');
         }
 

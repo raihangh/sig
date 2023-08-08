@@ -15,7 +15,7 @@ class PenerimaanBarang extends Model
     {
         $results = DB::table('barangs')
         ->join('penerimaan_barang', 'barangs.id', '=', 'penerimaan_barang.barang_id')
-        ->select('barangs.nama_barang', 'penerimaan_barang.*')
+        ->select('barangs.nama_barang', 'penerimaan_barang.*')->orderBy('tanggal_penerimaan', 'DESC')
         ->get();
         return $results;
     }
@@ -24,7 +24,7 @@ class PenerimaanBarang extends Model
         $results = DB::table('barangs')
         ->join('penerimaan_barang', 'barangs.id', '=', 'penerimaan_barang.barang_id')
         ->whereBetween('penerimaan_barang.tanggal_penerimaan', [$startDate, $endDate])
-        ->select('barangs.nama_barang', 'penerimaan_barang.*')
+        ->select('barangs.nama_barang', 'penerimaan_barang.*')->orderBy('tanggal_penerimaan', 'ASC')
         ->get();
         return $results;
     }

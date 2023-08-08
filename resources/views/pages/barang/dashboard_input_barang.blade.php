@@ -27,7 +27,7 @@
               <div class="form-group">
                 <label for="barang-name">Nama Barang:</label>
                 <input type="text" class="form-control" id="barang-name" name="nama_barang"
-                  value="{{ old('nama_barang') }}" placeholder="Enter the name of the item">
+                  value="{{ old('nama_barang') }}" placeholder="Enter the name of the item" required>
                 @error('nama_barang')
                 <small id="passwordHelp" class="text-danger">
                   {{ $message }}
@@ -37,7 +37,7 @@
               <div class="form-group">
                 <label for="category">Kode barang:</label>
                 <input type="text" class="form-control" id="barang-name" name="kode_barang"
-                  value="{{ old('kode_barang') }}" placeholder="Enter the name of the item">
+                  value="{{ old('kode_barang') }}" placeholder="Enter the name of the item" required>
                 @error('kode_barang')
                 <small id="passwordHelp" class="text-danger">
                   {{ $message }}
@@ -47,7 +47,7 @@
               <div class="form-group">
                 <label for="barang-deskripsi">Deskripsi:</label>
                 <input type="text" class="form-control" id="barang-price" min="0" name="deskripsi"
-                  value="{{ old('deskripsi') }}" placeholder="Enter the price of the item">
+                  value="{{ old('deskripsi') }}" placeholder="Enter the price of the item" required>
                 @error('deskripsi')
                 <small id="passwordHelp" class="text-danger">
                   {{ $message }}
@@ -57,7 +57,7 @@
               <div class="form-group">
                 <label for="barang-price">Harga:</label>
                 <input type="number" class="form-control" id="barang-price" min="0" name="harga"
-                  value="{{ old('harga') }}" placeholder="Enter the price of the item">
+                  value="{{ old('harga') }}" placeholder="Enter the price of the item" required>
                 @error('harga')
                 <small id="passwordHelp" class="text-danger">
                   {{ $message }}
@@ -68,7 +68,7 @@
               <div class="form-group">
                 <label for="barang-deskripsi">Kategori:</label>
                 <input type="text" class="form-control" id="barang-price" min="0" name="kategori"
-                  value="{{ old('kategori') }}" placeholder="Enter the price of the item">
+                  value="{{ old('kategori') }}" placeholder="Enter the price of the item" required>
                 @error('kategori')
                 <small id="passwordHelp" class="text-danger">
                   {{ $message }}
@@ -90,7 +90,7 @@
               <div class="form-group">
                 <label for="barang-quantity">Stok:</label>
                 <input type="number" class="form-control" id="barang_quantity_pack" name="stock" min="0"
-                  value="{{ old('stock') }}" placeholder="Enter the quantity of the item">
+                  value="{{ old('stock') }}" placeholder="Enter the quantity of the item" required>
                 @error('stock')
                 <small id="passwordHelp" class="text-danger">
                   {{ $message }}
