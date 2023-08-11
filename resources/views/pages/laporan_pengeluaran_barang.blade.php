@@ -8,7 +8,6 @@
           <th style="border: 1px solid #000; padding: 8px; background-color: #f2f2f2; font-weight: bold;">No Pengeluaran</th>
           <th style="border: 1px solid #000; padding: 8px; background-color: #f2f2f2; font-weight: bold;">Tanggal</th>
           <th style="border: 1px solid #000; padding: 8px; background-color: #f2f2f2; font-weight: bold;">Jumlah</th>
-          <!-- Add more table headers as needed -->
       </tr>
   </thead>
   <tbody>
@@ -21,8 +20,7 @@
               <td style="border: 1px solid #000; padding: 8px;">{{ $pengeluaranBarang->nama_barang }}</td>
               <td style="border: 1px solid #000; padding: 8px;">{{ $pengeluaranBarang->no_pengeluaran }}</td>
               <td style="border: 1px solid #000; padding: 8px;">{{ $pengeluaranBarang->tanggal_pengeluaran }}</td>
-              <td style="border: 1px solid #000; padding: 8px;">{{ $pengeluaranBarang->jumlah }}</td>
-              <!-- Add more table cells as needed -->
+              <td style="border: 1px solid #000; padding: 8px;">{{ $pengeluaranBarang->jumlah }}</td> @include('partials.footer')
           </tr>
       @endforeach
   </tbody>

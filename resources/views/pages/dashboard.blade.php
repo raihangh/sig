@@ -27,7 +27,6 @@
                             </div>
                             <div class="panel-body">
                                 {{ count($barang) }}
-                                <!-- Replace with dynamic value -->
                             </div>
                         </div>
                     </div>
@@ -38,7 +37,6 @@
                             </div>
                             <div class="panel-body">
                                 {{ $penerimaan }}
-                                <!-- Replace with dynamic value -->
                             </div>
                         </div>
                     </div>
@@ -49,7 +47,6 @@
                             </div>
                             <div class="panel-body">
                                {{ $pengeluaran }}
-                                <!-- Replace with dynamic value -->
                             </div>
                         </div>
                     </div>
@@ -60,7 +57,6 @@
                             </div>
                             <div class="panel-body">
                                 {{ count($barangStokKosong) }}
-                                <!-- Replace with dynamic value -->
                             </div>
                         </div>
                     </div>        

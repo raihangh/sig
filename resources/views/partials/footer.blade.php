@@ -14,18 +14,7 @@
 <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap.min.js"></script>
 <script>
-    function setActive(event, element) {
-        // Hapus kelas "active" dari semua tautan
-        var navLinks = document.querySelectorAll(".nav-item a");
-        navLinks.forEach(function(link) {
-            link.classList.remove("active");
-        });
-
-        // Tambahkan kelas "active" pada tautan yang sedang diklik
-        element.classList.add("active");
-    }
-
-    // Jalankan saat halaman dimuat untuk mengatur status aktif pada tautan berdasarkan URL
+    //mengatur status aktif pada tautan berdasarkan URL
     document.addEventListener("DOMContentLoaded", function() {
         var currentUrl = window.location.pathname;
         var navbarLinks = document.querySelectorAll(".nav-item a");
@@ -34,19 +23,15 @@
             // if (link.getAttribute("href") === currentUrl) {
             //     link.classList.add("active");
             // }
-            if (link.getAttribute("href").includes('dashboardAwal') && currentUrl.includes(
-                    'dashboardAwal')) {
+            if (link.getAttribute("href").includes('dashboardAwal') && currentUrl.includes('dashboardAwal')) {
                 link.classList.add("active");
             } else if (link.getAttribute("href").includes('barang') && currentUrl.includes('barang')) {
                 link.classList.add("active");
-            } else if (link.getAttribute("href").includes('laporan') && currentUrl.includes(
-                'laporan')) {
+            } else if (link.getAttribute("href").includes('laporan') && currentUrl.includes('laporan')) {
                 link.classList.add("active");
-            } else if (link.getAttribute("href").includes('penerimaanBarang') && currentUrl.includes(
-                    'penerimaanBarang')) {
+            } else if (link.getAttribute("href").includes('penerimaanBarang') && currentUrl.includes('penerimaanBarang')) {
                 link.classList.add("active");
-            } else if (link.getAttribute("href").includes('pengeluaranBarang') && currentUrl.includes(
-                    'pengeluaranBarang')) {
+            } else if (link.getAttribute("href").includes('pengeluaranBarang') && currentUrl.includes('pengeluaranBarang')) {
                 link.classList.add("active");
             } else {
                 null

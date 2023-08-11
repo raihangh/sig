@@ -4,13 +4,10 @@
     <thead>
         <tr>
             <th style="border: 1px solid #000; padding: 8px; background-color: #f2f2f2; font-weight: bold;">NO</th>
-            <th style="border: 1px solid #000; padding: 8px; background-color: #f2f2f2; font-weight: bold;">Nama Barang
-            </th>
-            <th style="border: 1px solid #000; padding: 8px; background-color: #f2f2f2; font-weight: bold;">No Penerimaan
-            </th>
+            <th style="border: 1px solid #000; padding: 8px; background-color: #f2f2f2; font-weight: bold;">Nama Barang</th>
+            <th style="border: 1px solid #000; padding: 8px; background-color: #f2f2f2; font-weight: bold;">No Penerimaan</th>
             <th style="border: 1px solid #000; padding: 8px; background-color: #f2f2f2; font-weight: bold;">Tanggal</th>
             <th style="border: 1px solid #000; padding: 8px; background-color: #f2f2f2; font-weight: bold;">Jumlah</th>
-            <!-- Add more table headers as needed -->
         </tr>
     </thead>
     <tbody>
@@ -24,7 +21,6 @@
                 <td style="border: 1px solid #000; padding: 8px;">{{ $penerimaanBarang->no_penerimaan }}</td>
                 <td style="border: 1px solid #000; padding: 8px;">{{ $penerimaanBarang->tanggal_penerimaan }}</td>
                 <td style="border: 1px solid #000; padding: 8px;">{{ $penerimaanBarang->jumlah }}</td>
-                <!-- Add more table cells as needed -->
             </tr>
         @endforeach
     </tbody>

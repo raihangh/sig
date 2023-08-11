@@ -41,8 +41,6 @@ class BarangController extends Controller
             // ]  
         );
 
-        
-
         try {
 
             $model = new Barangs();

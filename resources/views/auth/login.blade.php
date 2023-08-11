@@ -6,6 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login Page</title>
   <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
   <style>
     .login-form {
       max-width: 400px;
@@ -31,8 +34,16 @@
             <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
           </div>
           <div class="form-group">
-            <label for="password">Password:</label>
-            <input type="password" class="form-control" id="password" placeholder="Enter password" name="password">
+            <label for="password">Password</label>
+            <div class="input-group">
+              <input type="password" class="form-control" id="password" name="password" required placeholder="Masukan Password">
+              <span class="input-group-addon">
+                <i class="bi bi-eye show_password"></i>
+              </span>
+            </div>
+          </div>
+          <div class="form-group">
+            <a href="/forgot-password">Lupa Password</a>
           </div>
           <button type="submit" class="btn btn-primary btn-block">Login</button>
         </form>
@@ -45,6 +56,19 @@
     </div>
   </div>
   <script src="assets/css/bootstrap.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      // Show/hide password functionality
+      $(".show_password").click(function() {
+        var passwordField = $("#password");
+        if (passwordField.attr("type") === "password") {
+          passwordField.attr("type", "text");
+        } else {
+          passwordField.attr("type", "password");
+        }
+      });
+    });
+  </script>
 </body>
 
 </html>

@@ -21,9 +21,9 @@
                             <form id="dateRangeFormPenerimaan" action="/dashboard-laporan-penerimaan-search" method="POST">
                                 @csrf
                                 <label for="">Mulai dari</label>
-                                <input type="date" name="tanggal_penerimaan" required>
+                                <input type="date" name="tanggal_penerimaan" id = "tanggal_penerimaan" required>
                                 <label for="">Sampai: </label>
-                                <input type="date" name="tanggal_penerimaan_end" required>
+                                <input type="date" name="tanggal_penerimaan_end" id = "tanggal_penerimaan_end" required>
                                 <button class="btn btn-primary" style="margin-left: 10px;">Cari</button>
                             </form>
                         
@@ -68,6 +68,11 @@
                                     @endforeach
                                 </tbody>
                             </table>
+                            @if(count($penerimaan)< 1)
+                                <div class="">
+                                    <p>Tidak ada penerimaan barang di Tgl: {{ $startDatePenerimaan }} sampai: {{ $endDatePenerimaan }}</p>
+                                </div>
+                            @endif
                         </div>
                     </div>
                     <div class="col-md-6" style="padding:20px;">
@@ -76,9 +81,9 @@
                             <form id="dateRangeFormPengeluaran" action="/dashboard-laporan-pengeluaran-search" method="POST">
                                 @csrf
                                 <label for="">Mulai dari</label>
-                                <input type="date" name="tanggal_pengeluaran" required>
+                                <input type="date" name="tanggal_pengeluaran" id = "tanggal_pengeluaran" required>
                                 <label for="">Sampai: </label>
-                                <input type="date" name="tanggal_pengeluaran_end" required>
+                                <input type="date" name="tanggal_pengeluaran_end" id = "tanggal_pengeluaran_end" required>
                                 <button class="btn btn-primary" style="margin-left: 10px;">Cari</button>
                             </form>
                         
@@ -121,6 +126,11 @@
                                     @endforeach
                                 </tbody>
                             </table>
+                            @if(count($pengeluaran)< 1)
+                            <div class="">
+                                <p>Tidak ada pengeluaran barang di Tgl: {{ $startDatePengeluaran }} sampai: {{ $endDatePengeluaran }}</p>
+                            </div>
+                        @endif
                         </div>
                     </div>
                 </div>
@@ -131,3 +141,22 @@
 </div>
 @include('partials/footer')
 
+<script>
+    const startDatePenerimaan = document.querySelector('#tanggal_penerimaan');
+    const endDatePenerimaan = document.querySelector('#tanggal_penerimaan_end');
+  
+    startDatePenerimaan.addEventListener('change', (e) => {
+      const selectedStartDate = e.target.value;
+      endDatePenerimaan.value = ''; // Clear the end date input
+      endDatePenerimaan.min = selectedStartDate; // Set the minimum value for end date
+    });
+
+    const startDatePengeluaran = document.querySelector('#tanggal_pengeluaran');
+    const endDatePengeluaran = document.querySelector('#tanggal_pengeluaran_end');
+  
+    startDatePengeluaran.addEventListener('change', (e) => {
+    const selectedStartDate = e.target.value;
+    endDatePengeluaran.value = ''; // Clear the end date input
+    endDatePengeluaran.min = selectedStartDate; // Set the minimum value for end date
+    });
+</script>

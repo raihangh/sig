@@ -54,6 +54,14 @@
                 </small>
                 @enderror
               </div>
+              {{-- <div class="form-group">
+                <label for="tanggal_kadaluarsa">Tanggal Kadaluarsa:</label>
+                <input type="date" class="form-control" id="tanggal_kadaluarsa" name="tanggal_kadaluarsa"
+                       value="{{ old('tanggal_kadaluarsa') }}" required>
+                @error('tanggal_kadaluarsa')
+                <small class="text-danger">{{ $message }}</small>
+                @enderror
+              </div>             --}}
               <div class="form-group">
                 <label for="barang-price">Harga:</label>
                 <input type="number" class="form-control" id="barang-price" min="0" name="harga"
@@ -80,6 +88,7 @@
                 <select name="satuan" id="" class="form-control">
                   <option value="ecer">Ecer</option>
                   <option value="pack">Pack</option>
+                  <option value="pack">Kg</option>
                 </select>
                 @error('satuan')
                 <small id="passwordHelp" class="text-danger">
